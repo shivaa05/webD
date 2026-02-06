@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Login Form</h1>
+        <form id="loginform" method="post" action="/index.html">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your name">
+            <p id="errorUsername">Username is required</p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <p id="errorPassword">Password is required</p>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
