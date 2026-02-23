@@ -1,0 +1,70 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, rgb(10, 2, 34), rgb(78, 71, 92));
+}
+
+.wrapper{
+  width:350px;
+  border: 1px solid black;
+  background: rgb(8, 1, 32);
+  color: white;
+  padding-inline: 25px;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 10px rgb(24, 23, 23); 
+}
+
+.wrapper > h1{
+  font-size: 40px;
+  background-image: linear-gradient(to right,green,rgb(172, 172, 207));
+  width: fit-content;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+#loginform{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#loginform > label{
+  font-size: 20px;
+}
+
+#loginform > input{
+  padding: 7px;
+  padding-inline: 10px;
+  background: rgb(33, 28, 48);
+  outline: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+}
+#loginform > button{
+  font-size: 18px;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#loginform > p{
+  display: none;
+  font-size: 14px;
+  color: tomato;
+  margin: 0;
+  margin-top: -11px;
+  padding-left: 5px;
+}
+
+.required{
+  display: block;
+  border: 2px solid tomato;
+}
