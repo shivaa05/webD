@@ -1,18 +1,23 @@
-const usernameInput = document.querySelector("#username");
+const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
 const form = document.querySelector("#loginform");
 const errorPassword = document.querySelector("#errorPassword");
-const errorUsername = document.querySelector("#errorUsername");
+const erroremail = document.querySelector("#erroremail");
+const currentPage = window.location.pathname;
+const ls = localStorage.getItem("isLoggedIn")
 
-let username = "";
+if (currentPage.includes("/login.html") && ls)
+  window.location.href = "http://127.0.0.1:5500/WebD/frontend/dashboard.html"
+
+let email = "";
 let password = "";
 
-usernameInput.addEventListener("input", () => {
-  username = usernameInput.value.trim();
-
-  if (username !== "") {
-    errorUsername.style.display = "none";
-    usernameInput.style.border = "none";
+emailInput.addEventListener("input", () => {
+  email = emailInput.value.trim();
+  
+  if (email !== "") {
+    erroremail.style.display = "none";
+    emailInput.style.border = "none";
   }
 });
 
@@ -25,15 +30,15 @@ passwordInput.addEventListener("input", () => {
   }
 });
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  console.log("Username: ",username)
-  console.log("Password: ",password)
+  console.log("email: ", email);
+  console.log("Password: ", password);
   let isValid = true;
-  if (username === "") {
-    errorUsername.style.display = "block";
-    usernameInput.style.border = "1px solid tomato";
+  if (email === "") {
+    erroremail.style.display = "block";
+    emailInput.style.border = "1px solid tomato";
     isValid = false;
   }
   
@@ -42,14 +47,32 @@ form.addEventListener("submit", (e) => {
     passwordInput.style.border = "1px solid tomato";
     isValid = false;
   }
-
+  
   if (isValid) {
-    console.log("Form is Valid")
-
+    console.log("Form is Valid");
+    
     const formData = {
-      username,
-      password
+      email,
+      password,
+    };
+    console.log("Form data: ", formData);
+  }
+  
+  try {
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await  response.json()
+    console.log(data);
+    if (data.success) {
+      localStorage.setItem("isLoggedIn", true)
+      window.location.href = "http://127.0.0.1:5500/WebD/frontend/dashboard.html"
     }
-    console.log("Form data: ",formData)
+  } catch (error) {
+    console.log("error is login", error);
   }
 });
