@@ -4,17 +4,17 @@ const form = document.querySelector("#loginform");
 const errorPassword = document.querySelector("#errorPassword");
 const erroremail = document.querySelector("#erroremail");
 const currentPage = window.location.pathname;
-const ls = localStorage.getItem("isLoggedIn")
+const ls = localStorage.getItem("isLoggedIn");
 
 if (currentPage.includes("/login.html") && ls)
-  window.location.href = "http://127.0.0.1:5500/WebD/frontend/dashboard.html"
+  window.location.href = "http://127.0.0.1:5500/WebD/frontend/dashboard.html";
 
 let email = "";
 let password = "";
 
 emailInput.addEventListener("input", () => {
   email = emailInput.value.trim();
-  
+
   if (email !== "") {
     erroremail.style.display = "none";
     emailInput.style.border = "none";
@@ -41,23 +41,23 @@ form.addEventListener("submit", async (e) => {
     emailInput.style.border = "1px solid tomato";
     isValid = false;
   }
-  
+
   if (password === "") {
     errorPassword.style.display = "block";
     passwordInput.style.border = "1px solid tomato";
     isValid = false;
   }
-  
+
   if (isValid) {
     console.log("Form is Valid");
-    
+
     const formData = {
       email,
       password,
     };
     console.log("Form data: ", formData);
   }
-  
+
   try {
     const response = await fetch("http://localhost:3000/login", {
       method: "POST",
@@ -66,11 +66,15 @@ form.addEventListener("submit", async (e) => {
       },
       body: JSON.stringify({ email, password }),
     });
-    const data = await  response.json()
-    console.log(data);
+    const data = await response.json();
+    alert(data.message)
     if (data.success) {
-      localStorage.setItem("isLoggedIn", true)
-      window.location.href = "http://127.0.0.1:5500/WebD/frontend/dashboard.html"
+      const username = email.split("@")[0];
+      console.log(username)
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("username", username);
+      window.location.href =
+        "http://127.0.0.1:5500/WebD/frontend/dashboard.html";
     }
   } catch (error) {
     console.log("error is login", error);
