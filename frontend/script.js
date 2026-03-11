@@ -67,16 +67,18 @@ form.addEventListener("submit", async (e) => {
       body: JSON.stringify({ email, password }),
     });
     const data = await response.json();
-    alert(data.message)
+    console.log(data)
+    alert(data.message);
     if (data.success) {
       const username = email.split("@")[0];
-      console.log(username)
+      console.log(username);
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("username", username);
       window.location.href =
         "http://127.0.0.1:5500/WebD/frontend/dashboard.html";
     }
   } catch (error) {
-    console.log("error is login", error);
+    alert("Internal server error");
+    console.log("error in login", error);
   }
 });

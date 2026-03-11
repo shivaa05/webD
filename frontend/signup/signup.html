@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up page</title>
+  <link rel="stylesheet" href="signup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="left">
+      <form class="signup">
+        <div class="heading">Lets Get started</div>
+      
+        <div>
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="example@gmail.com">
+          <div id="emailError" class="error"></div>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password">
+          <div id="passwordError" class="error"></div>
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" placeholder="9876543210">
+          <div id="phoneError" class="error"></div>
+        </div>
+      
+        <button id="signup-button" type="submit">Signup</button>
+        <p class="account">Already have an account? <span>Signin</span></p>
+      </form>
+    </div>
+
+    <div class="image">
+      <img src="./signup.avif" alt="">
+    </div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+  integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./animate.js"></script>
+<script src="./signup.js"></script>
+</html>

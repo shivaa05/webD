@@ -1,0 +1,116 @@
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-items: center;
+  overflow: hidden;
+}
+.left{
+  height: 100vh;
+  display: flex;
+  flex-direction: column ;
+  gap: 15px;
+  justify-content: center;
+  padding-inline: 10vw;
+}
+.left .heading{
+  font-size: 38px;
+  font-weight: 700;
+}
+.signup{
+  width: 28vw ;
+  padding: 40px 30px;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column ;
+  gap: 15px;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 20px;
+}
+input{
+  width: full;
+  border: 1px solid rgb(141, 131, 131);
+  outline: none;
+  border-radius: 5px;
+  padding-block: 6px;
+  font-size: 15px;
+  padding-inline: 8px;
+}
+
+label{
+  font-size: 24px;
+  font-weight: 600;
+  font-family: serif;
+  margin-bottom: 5px;
+}
+
+.signup >div{
+  display: flex;
+  flex-direction: column;
+  width: full;
+  gap: 5px;
+}
+.image{
+  width: 50vw;
+  height: 100vh;
+}
+
+.image >img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#signup-button{
+  padding: 7px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background: rgb(1, 130, 1);
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  margin-top: 10px;
+}
+
+#signup-button:hover{
+  background: rgb(2, 103, 2);
+}
+
+.account{
+  text-align: center;
+  margin-top: -5px;
+  color: rgb(76, 71, 71);
+}
+
+.account >span{
+  color: rgb(160, 59, 16);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width:600px) {
+  .image{
+    display: none;
+  }
+  .signup{
+    width: 70vw;
+  }
+}
+
+.error{
+  color: tomato;
+}
