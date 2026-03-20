@@ -1,9 +1,12 @@
 import express from "express";
 import cors from "cors";
 import fs from "fs/promises";
+import jwt from "jsonwebtoken";
 
 const app = express();
 const PORT = 3000;
+
+const JWT_TOKEN = "secret_key";
 
 app.use(express.json());
 app.use(cors());
@@ -25,8 +28,10 @@ app.post("/login", (req, res) => {
   }
 
   if (email === "shiva@gmail.com" && password === "1234") {
+    const token = jwt.sign({ email }, JWT_TOKEN, { expiresIn: "7d" });
     return res.status(200).json({
       success: true,
+      token,
       message: "Login successful",
     });
   }

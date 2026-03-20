@@ -23,6 +23,7 @@ gsap.from(".signup *", {
   delay: 0.5,
   stagger: 0.1,
   opacity: 0.4,
+  duration:0.2,
   origin:top,
   transformOrigin:"top"
 })

@@ -23,7 +23,7 @@ function isWeakPassword(password) {
 }
 
 
-signupForm.addEventListener("submit", (e) => {
+signupForm.addEventListener("submit", async(e) => {
   e.preventDefault();
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
@@ -77,6 +77,24 @@ signupForm.addEventListener("submit", (e) => {
   
 
   if (isValid) {
-    
+    console.log("object")
+    const response = await fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password,phone }),
+    });
+    const data = await response.json();
+    console.log(data)
+    alert(data.message);
+    if (data.success) {
+      const username = email.split("@")[0];
+      console.log(username);
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("username", username);
+      window.location.href =
+        "http://127.0.0.1:5500/WebD/frontend/dashboard.html";
+    }
   }
 });

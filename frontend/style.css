@@ -4,27 +4,20 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(178, 178, 247);
 }
 
 .wrapper{
   width:350px;
   border: 1px solid black;
-  background: rgb(1, 1, 51);
-  color: white;
+  /* color: white; */
+  background: rgba(199, 203, 235, 0.274);
   padding-inline: 25px;
   border-radius: 10px;
   padding-bottom: 20px;
-  box-shadow: 0 4px 10px rgb(24, 23, 23); 
 }
 
 .wrapper > h1{
   font-size: 40px;
-  background-image: linear-gradient(to right,rgb(17, 188, 188),rgb(249, 249, 255));
-  width: fit-content;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
 }
 
 #loginform{
@@ -40,13 +33,13 @@ body{
 #loginform > input{
   padding: 7px;
   padding-inline: 10px;
-  background: rgb(216, 205, 249);
   outline: none;
   color: rgb(9, 1, 1);
   font-size: 18px;
   border-radius: 8px;
   border: none;
   margin-bottom: 10px;
+  border: 1px solid black;
 }
 #loginform > button{
   font-size: 18px;
@@ -54,11 +47,12 @@ body{
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  background: #807c89;
+  background: #4a4df5;
   padding: 7px;
   font-weight: 700;
   font-size: 20px;
   color: rgb(2, 2, 60);
+  border: 1px solid black;
 }
 #loginform > p{
   display: none;

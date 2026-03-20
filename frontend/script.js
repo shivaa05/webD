@@ -72,7 +72,7 @@ form.addEventListener("submit", async (e) => {
     if (data.success) {
       const username = email.split("@")[0];
       console.log(username);
-      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("isLoggedIn", data.token);
       localStorage.setItem("username", username);
       window.location.href =
         "http://127.0.0.1:5500/WebD/frontend/dashboard.html";
